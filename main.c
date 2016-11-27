@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	} else {
 		printf("Greetings from process %d of %d\n", comm_rank,
 			comm_size);
-		for(int i = 0; i < comm_size; i++) {
+		for(int i = 1; i < comm_size; i++) {
 			printf("Receiving for %d\n", i);
 			MPI_Recv(greeting, MAX_STRING, MPI_CHAR, i, 0,
 				MPI_COMM_WORLD, MPI_STATUS_IGNORE);
@@ -33,4 +33,3 @@ int main(int argc, char *argv[])
 	MPI_Finalize();
 	return 0;
 }
-
